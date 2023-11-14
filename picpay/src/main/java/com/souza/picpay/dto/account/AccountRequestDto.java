@@ -1,4 +1,4 @@
-package com.souza.picpay.controller.dto.account;
+package com.souza.picpay.dto.account;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,8 +9,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class AccountResponseDto {
-    private String uuid;
+public class AccountRequestDto {
     private String userUuid;
     private BigDecimal bankBalance;
 }

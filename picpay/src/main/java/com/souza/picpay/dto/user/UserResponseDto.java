@@ -1,4 +1,4 @@
-package com.souza.picpay.controller.dto.user;
+package com.souza.picpay.dto.user;
 
 import com.souza.picpay.domain.RoleEnum;
 import lombok.AllArgsConstructor;
