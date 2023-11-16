@@ -11,11 +11,22 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Data
 @Entity
-@Table
+@Table(name = "accounts")
 public class AccountModel {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String uuid;
+    @Column(name = "user_uuid")
     private String userUuid;
+    @Column(name = "bank_balance")
+
     private BigDecimal bankBalance;
+
+    public void payerUpdate(BigDecimal value) {
+        this.setBankBalance(this.bankBalance.subtract(value));
+    }
+
+    public void payeeUpdate(BigDecimal value) {
+        this.setBankBalance(this.bankBalance.add(value));
+    }
 }

@@ -1,5 +1,5 @@
-CREATE TABLE users(
-    uuid UUID PRIMARY KEY ,
+CREATE TABLE IF NOT EXISTS users(
+    uuid VARCHAR(36) PRIMARY KEY ,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     cpf VARCHAR(11) NOT NULL UNIQUE,

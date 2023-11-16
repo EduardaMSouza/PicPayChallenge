@@ -10,12 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 @NoArgsConstructor
 @Data
 @Entity
-@Table
+@Table(name = "users")
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String uuid;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
     private String cpf;
     private String email;
