@@ -6,6 +6,8 @@ import com.souza.picpay.dto.user.UserRequestDto;
 import com.souza.picpay.dto.user.UserResponseDto;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,6 +22,8 @@ public class UserService {
 
     public UserResponseDto saveUser(UserRequestDto dto) {
         var user = modelMapper.map(dto, UserModel.class);
+        var encryptedPassword = new BCryptPasswordEncoder().encode(dto.getPassword());
+        user.setPassword(encryptedPassword);
         var savedUser = userRepository.save(user);
         var account = accountService.saveAccount(savedUser.getUuid());
         var joinAccount = modelMapper.map(savedUser, UserResponseDto.class);

@@ -1,6 +1,16 @@
 package com.souza.picpay.domain;
 
+import lombok.Getter;
+
+@Getter
 public enum RoleEnum {
-    RETAILER,
-    USER
+    RETAILER("retailer"),
+    USER("user");
+
+    private String role;
+
+    RoleEnum(String role) {
+        this.role = role;
+    }
+
 }

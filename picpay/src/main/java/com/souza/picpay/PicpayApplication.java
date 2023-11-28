@@ -11,7 +11,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @SpringBootApplication
 @EntityScan(basePackages = {"com.souza.picpay.domain"})
-@ComponentScan(basePackages = {"com.souza.picpay.controller", "com.souza.picpay.domain", "com.souza.picpay.service", "com.souza.picpay.data"})
+@ComponentScan(basePackages = {"com.souza.picpay.controller", "com.souza.picpay.domain", "com.souza.picpay.service", "com.souza.picpay.data", "com.souza.picpay.infra.security"})
 @EnableJpaRepositories(basePackages = {"com.souza.picpay.data"})
 public class PicpayApplication {
 

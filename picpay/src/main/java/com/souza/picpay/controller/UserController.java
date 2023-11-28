@@ -7,6 +7,7 @@ import com.souza.picpay.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +20,9 @@ public class UserController {
 
     private UserService userService;
 
-    @PostMapping
-    public ResponseEntity<UserResponseDto> login(@RequestBody UserRequestDto dto) {
+
+    @PostMapping("/register")
+    public ResponseEntity<UserResponseDto> saveUser(@RequestBody UserRequestDto dto) {
         var savedUser = userService.saveUser(dto);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
